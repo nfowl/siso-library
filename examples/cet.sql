@@ -9,7 +9,9 @@ eid serial,
 "subcategory" int2,
 "specific" int2,
 "extra" int2,
-"description" varchar(200));
+"description" varchar(200),
+"short_name" varchar(10),
+"details" JSON);
 ALTER TABLE "entities" ADD PRIMARY KEY (eid);
 INSERT INTO "entities" ("country","kind","domain","category","subcategory","specific","extra","description") VALUES ('2','1','3','61','0','0','0','Non-Combatant Ship');
 INSERT INTO "entities" ("country","kind","domain","category","subcategory","specific","extra","description") VALUES ('2','1','3','61','1','0','0','Container Class');
@@ -257,12 +259,12 @@ INSERT INTO "entities" ("country","kind","domain","category","subcategory","spec
 INSERT INTO "entities" ("country","kind","domain","category","subcategory","specific","extra","description") VALUES ('13','1','1','80','4','0','0','Dirt Bike');
 INSERT INTO "entities" ("country","kind","domain","category","subcategory","specific","extra","description") VALUES ('13','1','1','80','4','1','0','Generic Dirt Bike for Australian Army');
 INSERT INTO "entities" ("country","kind","domain","category","subcategory","specific","extra","description") VALUES ('13','1','2','1','0','0','0','Fighter/Air Defense');
-INSERT INTO "entities" ("country","kind","domain","category","subcategory","specific","extra","description") VALUES ('13','1','2','1','1','0','0','McDonnell-Douglas F/A-18 Hornet');
-INSERT INTO "entities" ("country","kind","domain","category","subcategory","specific","extra","description") VALUES ('13','1','2','1','1','1','0','F/A-18A');
-INSERT INTO "entities" ("country","kind","domain","category","subcategory","specific","extra","description") VALUES ('13','1','2','1','1','2','0','F/A-18B');
-INSERT INTO "entities" ("country","kind","domain","category","subcategory","specific","extra","description") VALUES ('13','1','2','1','1','3','0','F/A-18F');
-INSERT INTO "entities" ("country","kind","domain","category","subcategory","specific","extra","description") VALUES ('13','1','2','1','2','0','0','F-35 Joint Strike Fighter (JSF)');
-INSERT INTO "entities" ("country","kind","domain","category","subcategory","specific","extra","description") VALUES ('13','1','2','1','2','1','0','F-35A CTOL');
+INSERT INTO "entities" ("country","kind","domain","category","subcategory","specific","extra","description","short_name") VALUES ('13','1','2','1','1','0','0','McDonnell-Douglas F/A-18 Hornet','F-18');
+INSERT INTO "entities" ("country","kind","domain","category","subcategory","specific","extra","description","short_name") VALUES ('13','1','2','1','1','1','0','F/A-18A','F-18A');
+INSERT INTO "entities" ("country","kind","domain","category","subcategory","specific","extra","description","short_name") VALUES ('13','1','2','1','1','2','0','F/A-18B','F-18B');
+INSERT INTO "entities" ("country","kind","domain","category","subcategory","specific","extra","description","short_name") VALUES ('13','1','2','1','1','3','0','F/A-18F','F-18F');
+INSERT INTO "entities" ("country","kind","domain","category","subcategory","specific","extra","description","short_name") VALUES ('13','1','2','1','2','0','0','F-35 Joint Strike Fighter (JSF)','F-35');
+INSERT INTO "entities" ("country","kind","domain","category","subcategory","specific","extra","description","short_name") VALUES ('13','1','2','1','2','1','0','F-35A CTOL','F-35A');
 INSERT INTO "entities" ("country","kind","domain","category","subcategory","specific","extra","description") VALUES ('13','1','2','4','0','0','0','Cargo/Tanker');
 INSERT INTO "entities" ("country","kind","domain","category","subcategory","specific","extra","description") VALUES ('13','1','2','4','0','0','0','Other');
 INSERT INTO "entities" ("country","kind","domain","category","subcategory","specific","extra","description") VALUES ('13','1','2','4','1','0','0','GAF Nomad');

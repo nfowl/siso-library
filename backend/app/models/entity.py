@@ -1,9 +1,9 @@
 from typing import Dict
 from pydantic import BaseModel
 
-__all__ = ["EntityType", "EntityTypeDetails"]
+__all__ = ["EntityTypeQuery", "EntityTypeDetails", "EntityTypeFull", "Country"]
 
-class EntityType(BaseModel):
+class EntityTypeQuery(BaseModel):
     country: int
     kind: int
     domain: int
@@ -12,9 +12,10 @@ class EntityType(BaseModel):
     specific: int
     extra: int
 
-class NewEntityType(EntityType):
+class EntityTypeFull(EntityTypeQuery):
     description: str
-    details: Dict
+    short_name: str = None
+    details: Dict = None
 
 class Country(BaseModel):
     fullname: str
