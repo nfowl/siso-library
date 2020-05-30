@@ -2,7 +2,7 @@ from typing import List, Optional
 from sqlalchemy import select, or_
 from app.models.entity import *
 from app.database import the_database as db
-from app.database.tables import entities
+from app.database.tables import entities, countries
 
 
 async def get_all_entities() -> List[EntityTypeFull]:
@@ -41,6 +41,19 @@ async def update_or_insert_entity(name: str, entity_data: EntityTypeFull):
     query = entities.insert()
     result = await db.execute(query=query, values=dict(**dict(entity_data)))
     return result
+
+async def get_countries() -> List[Country]:
+    country_list = await db.fetch_all(select([countries.c.name, countries.c.iso3]))
+    results = [Country(**dict(x)) for x in country_list]
+    return results
+
+async def get_country(id: int) -> Optional[Country]:
+    query = select([countries.c.name, countries.c.iso3])
+    query = query.where(countries.c.id == id)
+    country = await db.fetch_one(query)
+    if country:
+        return Country(**dict(country))
+    return None
 
 # async def get_entity_from_data(type: EntityTypeQuery) -> Optional[EntityTypeFull]:
 #     # query = select([metadata.tables.get("entities")])

@@ -18,7 +18,7 @@ class EntityTypeFull(EntityTypeQuery):
     details: Dict = None
 
 class Country(BaseModel):
-    fullname: str
+    name: str
     iso3: str
 
 class EntityTypeDetails(BaseModel):

@@ -1,6 +1,7 @@
 SET CLIENT_ENCODING TO UTF8;
 SET STANDARD_CONFORMING_STRINGS TO ON;
-BEGIN;CREATE TABLE "entities" (
+BEGIN;
+CREATE TABLE "entities" (
 eid serial,
 "country" int2,
 "kind" int2,

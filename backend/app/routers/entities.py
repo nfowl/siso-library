@@ -13,12 +13,12 @@ async def get_entities():
 
 @entity_router.get("/{name}", response_model=EntityTypeFull, response_model_exclude_unset=True)
 async def get_entity_from_name(name: str):
-    result = await get_entity(short_name)
+    result = await get_entity(name)
     return result
 
 @entity_router.put("/{name}", response_model=EntityTypeFull, response_model_exclude_unset=True)
 async def add_entity(new_entity: EntityTypeFull, name: str):
-    result = await update_or_insert_entity(short_name, new_entity)
+    result = await update_or_insert_entity(name, new_entity)
     print(result)
     return new_entity
 
