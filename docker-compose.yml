@@ -12,12 +12,9 @@ services:
       POSTGRES_PASSWORD: postgres
     volumes:
       - "postgres-data:/var/lib/postgresql/data"
-      - "./examples/:/docker-entrypoint-initdb.d/"
+      - "./sql/:/docker-entrypoint-initdb.d/"
     networks:
       - app
-  # app:
-  #   build: .
-  #   tag:
     
 networks:
   app:

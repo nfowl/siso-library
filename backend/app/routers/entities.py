@@ -1,7 +1,7 @@
 import asyncio 
 from typing import List
 from fastapi import APIRouter
-from app.database.methods import get_all_entities, get_entity, update_or_insert_entity
+from app.database.methods import get_all_entities, get_entity, update_or_insert_entity, get_entity_details
 from app.models.entity import EntityTypeDetails, EntityTypeFull, EntityTypeQuery
 entity_router = APIRouter()
 
@@ -22,8 +22,8 @@ async def add_entity(new_entity: EntityTypeFull, name: str):
     print(result)
     return new_entity
 
-@entity_router.post("/", response_model=EntityTypeFull, response_model_exclude_unset=True)
+@entity_router.post("/", response_model=EntityTypeDetails, response_model_exclude_unset=True)
 async def get_entity_from_data(entity_request: EntityTypeQuery):
     await asyncio.sleep(1)
-    e = EntityTypeDetails()
-    return e
+    result = await get_entity_details(entity_request)
+    return result
